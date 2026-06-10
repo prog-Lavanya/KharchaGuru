@@ -13,3 +13,4 @@ scikit-learn==1.7.2
 matplotlib==3.10.8
 reportlab==4.4.10
 pyodbc==5.3.0
+email-validator
