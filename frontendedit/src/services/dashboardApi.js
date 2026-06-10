@@ -1,6 +1,6 @@
 // src/services/dashboardApi.js
 
-const BASE_URL = "http://localhost:8000/dashboard";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com/dashboard";
 
 export const fetchDashboard = async (token) => {
   const response = await fetch(BASE_URL, {

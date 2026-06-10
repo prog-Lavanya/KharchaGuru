@@ -12,7 +12,7 @@ export default function ReportGenerator() {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch("http://localhost:8000/reports/download", {
+      const res = await fetch("https://kharchaguru-0cgi.onrender.com/reports/download", {
         headers: {
           Authorization: `Bearer ${token}`
         }

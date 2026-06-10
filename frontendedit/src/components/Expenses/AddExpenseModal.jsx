@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import SmartInput from "../SmartInput/SmartInput";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com";
 
 /* 🔥 ANOMALY LOGIC */
 const categoryLimits = {

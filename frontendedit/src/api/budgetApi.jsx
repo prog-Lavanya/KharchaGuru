@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE =   "https://kharchaguru-0cgi.onrender.com";
 const authHeaders = () => ({
   "Content-Type": "application/json",
   Authorization: `Bearer ${localStorage.getItem("access_token") || localStorage.getItem("token")}`,

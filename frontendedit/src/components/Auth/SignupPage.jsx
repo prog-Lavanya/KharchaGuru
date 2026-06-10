@@ -2,7 +2,7 @@ import { HelpCircle, Lock, Mail } from "lucide-react";
 import { useState } from "react";
 import AuthLayout from "./AuthLayout";
 
-const BASE_URL = "http://localhost:8000/auth";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com/auth";
 
 export default function SignupPage({ onSwitchToLogin }) {
 

@@ -1,4 +1,4 @@
-const SMART_ENTRY_URL = "http://localhost:8000/smart-entries/parse";
+const SMART_ENTRY_URL = "https://kharchaguru-0cgi.onrender.com/smart-entries/parse";
 
 function detectAmount(text) {
   const matches = text.match(/(?:rs\.?|inr|₹)?\s*(\d+(?:\.\d{1,2})?)/gi) || [];

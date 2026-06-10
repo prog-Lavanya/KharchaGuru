@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import BudgetForm from '../components/Budget/BudgetForm';
 import ActiveBudgetCard from '../components/Budget/ActiveBudgetCard';
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE ="https://kharchaguru-0cgi.onrender.com";
 
 const authHeaders = () => ({
   "Content-Type": "application/json",

@@ -80,7 +80,7 @@ export default function OCRModal({ isOpen, onClose }) {
         }
       }, 800);
 
-      const res = await fetch('http://localhost:8000/ocr/process', {
+      const res = await fetch('https://kharchaguru-0cgi.onrender.com/ocr/process', {
         method: 'POST',
         body: formData,
       });
@@ -452,7 +452,7 @@ export default function OCRModal({ isOpen, onClose }) {
                             setSaveError('');
 
                             try {
-                              const res = await fetch('http://localhost:8000/smart-entries/apply', {
+                              const res = await fetch('https://kharchaguru-0cgi.onrender.com/smart-entries/apply', {
                                 method: 'POST',
                                 headers: {
                                   'Content-Type': 'application/json',

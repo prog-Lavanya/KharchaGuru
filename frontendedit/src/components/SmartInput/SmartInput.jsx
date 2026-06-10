@@ -84,7 +84,7 @@ export default function SmartInput({
                 setProgress(prev => (prev < 90 ? prev + 5 : prev));
             }, 400);
 
-            const res = await fetch("http://localhost:8000/ocr/process", {
+            const res = await fetch("https://kharchaguru-0cgi.onrender.com/ocr/process", {
                 method: "POST",
                 body: formData
             });

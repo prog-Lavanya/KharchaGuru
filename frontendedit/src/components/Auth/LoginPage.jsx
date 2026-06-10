@@ -1,7 +1,7 @@
 import { Lock, Mail } from "lucide-react";
 import { useState } from "react";
 import AuthLayout from "./AuthLayout";
-const BASE_URL = "http://localhost:8000/auth";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com/auth";
 export default function LoginPage({ onSwitchToSignup, onLoginSuccess }) {
   const [identifier, setIdentifier] = useState(""); // Can be username or email
   const [password, setPassword] = useState("");

@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import ResultsModal from "../components/Investment/ResultsModal";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com";
 
 const apiFetch = (path, opts = {}) => {
   const token = localStorage.getItem("token");

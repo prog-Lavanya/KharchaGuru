@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000/auth";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com/auth";
 export async function login(mailId, password) {
   return fetch(BASE_URL + "/login", {
     method: "POST",

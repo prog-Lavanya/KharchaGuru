@@ -200,7 +200,7 @@
 
 import { useEffect, useState } from "react";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com";
 
 const DEFAULT_CATEGORIES = [
   "Food",

@@ -39,7 +39,7 @@ export default function Dashboard() {
 }, [previewOpen]);
   //FETCH EXPENSES
   useEffect(() => {
-    fetch("http://localhost:8000/expenses", {
+    fetch("https://kharchaguru-0cgi.onrender.com/expenses", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -146,7 +146,7 @@ const downloadReport = async () => {
       return;
     }
 
-    const res = await fetch("http://localhost:8000/reports/download", {
+    const res = await fetch("https://kharchaguru-0cgi.onrender.com/reports/download", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -187,7 +187,7 @@ const previewReport = async () => {
       setPreviewUrl("");
     }
 
-    const res = await fetch("http://localhost:8000/reports/preview", {
+    const res = await fetch("https://kharchaguru-0cgi.onrender.com/reports/preview", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

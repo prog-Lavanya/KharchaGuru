@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SmartInput from "../SmartInput/SmartInput";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE =   "https://kharchaguru-0cgi.onrender.com/";
 
 const authHeaders = () => ({
   "Content-Type": "application/json",

@@ -3,7 +3,7 @@ import { User, Mail, Calendar, Award } from "lucide-react";
 import EditableInfoCard from "../components/EditableInfoCard";
 import ReportGenerator from "../components/Reports/ReportGenerator";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com";
 
 export default function Profile() {
   const [loading, setLoading] = useState(true);

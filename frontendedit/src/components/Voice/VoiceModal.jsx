@@ -108,7 +108,7 @@ export default function VoiceModal({ isOpen, onClose }) {
   const parseCommand = (text) => {
     setIsProcessing(true);
     setErrorMessage('');
-    fetch('http://localhost:8000/smart-entries/parse', {
+    fetch('https://kharchaguru-0cgi.onrender.com/smart-entries/parse', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
@@ -262,7 +262,7 @@ export default function VoiceModal({ isOpen, onClose }) {
                         setErrorMessage('');
 
                         try {
-                          const res = await fetch('http://localhost:8000/smart-entries/apply', {
+                          const res = await fetch('https://kharchaguru-0cgi.onrender.com/smart-entries/apply', {
                             method: 'POST',
                             headers: {
                               'Content-Type': 'application/json',

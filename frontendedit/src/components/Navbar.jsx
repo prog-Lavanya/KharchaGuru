@@ -20,7 +20,7 @@ export default function Navbar({ onToggle }) {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/notifications/');
+      const res = await fetch('https://kharchaguru-0cgi.onrender.com/notifications/');
       if (!res.ok) return;
 
       const data = await res.json();
@@ -60,7 +60,7 @@ export default function Navbar({ onToggle }) {
 
   const addNotification = useCallback(async (message, type = 'info') => {
     try {
-      const res = await fetch('http://localhost:8000/notifications/', {
+      const res = await fetch('https://kharchaguru-0cgi.onrender.com/notifications/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message, type })
@@ -78,7 +78,7 @@ export default function Navbar({ onToggle }) {
 
   const markAsRead = async (id) => {
     try {
-      await fetch(`http://localhost:8000/notifications/${id}/read`, { method: 'PUT' });
+      await fetch(`https://kharchaguru-0cgi.onrender.com/notifications/${id}/read`, { method: 'PUT' });
       const updated = notifications.map(n =>
         n.id === id ? { ...n, read: true } : n
       );
@@ -89,7 +89,7 @@ export default function Navbar({ onToggle }) {
 
   const clearAll = async () => {
     try {
-      await fetch('http://localhost:8000/notifications/clear', { method: 'DELETE' });
+      await fetch('https://kharchaguru-0cgi.onrender.com/notifications/clear', { method: 'DELETE' });
       setNotifications([]);
       setUnreadCount(0);
     } catch (e) { console.error(e); }

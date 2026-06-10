@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SmartInput from "../components/SmartInput/SmartInput";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE =   "https://kharchaguru-0cgi.onrender.com";
 const today = new Date().toISOString().split("T")[0];
 const defaultGoalDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
   .toISOString()

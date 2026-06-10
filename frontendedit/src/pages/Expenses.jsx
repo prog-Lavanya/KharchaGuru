@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AddExpenseModal from "../components/Expenses/AddExpenseModal";
 import EditExpenseModal from "../components/Expenses/EditExpenseModal";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://kharchaguru-0cgi.onrender.com";
 
 export default function Expenses() {
   const [categories, setCategories] = useState([]);
