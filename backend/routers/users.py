@@ -24,17 +24,21 @@ router = APIRouter(prefix="/auth", tags=["Authentication"])
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def register(user_in: UserCreate, db: Session = Depends(get_db)):
     try:
+
         existing_user = db.query(DBUser).filter(
             (DBUser.Username == user_in.Username) |
             (DBUser.MailId == user_in.mailId)
         ).first()
+
         if existing_user:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Username or Email already registered"
             )
+
         hashed_pwd = hash_password(user_in.Password)
         hashed_answer = hash_password(user_in.SecurityAnswer)
+
         new_user = DBUser(
             Username=user_in.Username,
             MailId=user_in.mailId,
@@ -46,13 +50,25 @@ def register(user_in: UserCreate, db: Session = Depends(get_db)):
             SecurityQuestion=user_in.SecurityQuestion,
             SecurityAnswerHash=hashed_answer
         )
+
         db.add(new_user)
-        db.commit()
-        db.refresh(new_user)
-        new_profile = DBProfile(UserID=new_user.UserId)
+        db.flush()
+
+        new_profile = DBProfile(
+            UserID=new_user.UserId
+        )
+
         db.add(new_profile)
-        seed_default_categories(db, new_user.UserId)
+
+        seed_default_categories(
+            db,
+            new_user.UserId
+        )
+
         db.commit()
+
+        db.refresh(new_user)
+
         return UserResponse(
             UserId=new_user.UserId,
             mailId=new_user.MailId,
@@ -66,12 +82,17 @@ def register(user_in: UserCreate, db: Session = Depends(get_db)):
             LastLoginDate=new_user.LastLoginDate,
             IsActive=new_user.IsActive
         )
+
+    except HTTPException:
+        raise
+
     except Exception as e:
         db.rollback()
-        print("🔥 REGISTER ERROR:", e) 
+        print("🔥 REGISTER ERROR:", repr(e))
+
         raise HTTPException(
-            status_code=500,
-            detail="Registration failed due to server error"
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Registration failed: {str(e)}"
         )
 
 # now login

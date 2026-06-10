@@ -13,9 +13,6 @@ DEFAULT_EXPENSE_CATEGORIES = [
 ]
 
 def seed_default_categories(db: Session, user_id: int):
-    """
-    User signup ke turant baad ise call karein taaki user ko blank list na mile.
-    """
     for name in DEFAULT_EXPENSE_CATEGORIES:
         category = Category(
             CategoryName=name,
@@ -23,12 +20,12 @@ def seed_default_categories(db: Session, user_id: int):
             UserID=user_id
         )
         db.add(category)
-    try:
-        db.commit()
-    except IntegrityError:
-        # Agar seed pehle hi ho chuka hai toh ignore karein
-        db.rollback()
 
+    try:
+        db.flush()
+    except IntegrityError:
+        db.rollback()
+        raise
 def get_or_create_category(
     db: Session,
     *,
