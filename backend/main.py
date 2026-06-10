@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import users, expenses, auth,user_profiles,budgets, goals ,dashboard, tax, investment ,smart_entry,reports
 from routers import ocr, voice, reports
-
+from database import engine, Base
+from database_models import *
 app = FastAPI(title="Personal Finance API")
+Base.metadata.create_all(bind=engine)
 # CORS Setup
 app.add_middleware(
     CORSMiddleware,
